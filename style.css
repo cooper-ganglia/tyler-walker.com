@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --accent-gradient: linear-gradient(45deg, #ff00cc, #333399);
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0; /* Made slightly brighter for readability against dark shader */
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.03); /* Very transparent */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --blur: blur(12px);
+  
+  --radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #000; /* Black base for the shader to sit on */
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  padding: 0 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+  position: relative;
+  z-index: 10; /* Ensures content sits ABOVE the shader */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  margin-bottom: 60px;
+  
+  /* Glass Header */
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  border: var(--glass-border);
+  border-radius: 50px;
+  box-shadow: var(--glass-shadow);
+}
+
+/* Text & Title Styles */
+h1 {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  
+  /* Living Gradient Text */
+  background: linear-gradient(to right, #fff, #a5b4fc, #ff00cc, #333399);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+  color: #fff;
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: var(--accent-gradient);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 0, 204, 0.4);
+  transition: var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 0, 204, 0.6);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* CARD STYLES (Glass + 3D) */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: var(--glass-border);
+  border-radius: var(--radius);
+  padding: 30px;
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* 3D Requirements */
+  position: relative; 
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.1s ease-out; /* Smooths the mouse movement */
+  
+  overflow: hidden;
+}
+
+/* Glare Effect */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--radius);
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  transform: translateZ(20px); /* Lifts text off the card */
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transform: translateZ(10px);
+}
+
+.card .date {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff9966;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 700;
+  transform: translateZ(10px);
+}
+
+.card a {
+  margin-top: auto;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 2px solid #ff00cc;
+  width: fit-content;
+  transform: translateZ(30px); /* Higher lift for link */
+}
+
+/* Scroll Animations */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  margin-top: 100px;
+  text-align: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.9rem;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .hero h2 { font-size: 2.5rem; }
+  header { flex-direction: column; border-radius: 20px; }
+  nav { margin-top: 15px; }
+  nav a { margin: 0 10px; }
+}
