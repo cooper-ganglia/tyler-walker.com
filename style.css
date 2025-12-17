@@ -246,3 +246,60 @@ footer {
   nav { margin-top: 15px; }
   nav a { margin: 0 10px; }
 }
+
+/* --- REALITY SLIDER --- */
+.slider-container {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+#realitySlider {
+  -webkit-appearance: none; /* Remove default styling */
+  width: 200px; /* Width becomes height when rotated */
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  outline: none;
+  transform: rotate(-90deg); /* Make it vertical */
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* The "Thumb" (The handle you drag) */
+#realitySlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 15px #fff, 0 0 30px var(--accent-color, #ff00cc);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#realitySlider::-webkit-slider-thumb:hover {
+  transform: scale(1.5);
+}
+
+/* The little dots indicating notches */
+.slider-ticks {
+  position: absolute;
+  right: -15px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.slider-ticks span {
+  width: 8px;
+  height: 2px;
+  background: rgba(255,255,255,0.5);
+}
