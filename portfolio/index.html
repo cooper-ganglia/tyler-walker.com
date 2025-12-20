@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Tyler Walker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="/" style="color:inherit; text-decoration:none;">
+          Tyler Walker
+        </a>
+      </h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/portfolio/" class="active">Portfolio</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Projects</h2>
+        <p>Things I’ve built, shipped, or am actively working on.</p>
+      </section>
+
+      <section class="primary-links">
+        <div class="grid" id="projects-grid">
+          <!-- JS injects project cards here -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Tyler Walker</p>
+    </footer>
+  </div>
+
+  <script src="/shader.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    loadCards({
+      url: '/posts/projects/index.json',
+      gridId: 'projects-grid',
+      getHref: (project) => `/posts/projects/${project.file}`,
+      getInnerHTML: (project) => `
+        <h3>${project.title}</h3>
+        <p>${project.excerpt}</p>
+      `
+    });
+  </script>
+</body>
+</html>
