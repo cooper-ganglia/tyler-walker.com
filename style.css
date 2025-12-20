@@ -66,15 +66,26 @@ h1 {
   letter-spacing: -0.5px;
   
   /* Living Gradient Text */
-  background: linear-gradient(to right, #fff, #a5b4fc, #ff00cc, #333399);
-  background-size: 300% auto;
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #ffffff 16%,
+    #cdb8ff 30%,
+    #9fd1ff 46%,
+    #d8c6ff 62%,
+    #ffffff 78%,
+    #ffffff 100%
+  );
+  background-size: 320% 320%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 5s linear infinite;
+  animation: shine 26s ease-in-out infinite;
 }
 
 @keyframes shine {
-  to { background-position: 200% center; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 180% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 nav a {

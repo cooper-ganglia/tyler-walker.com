@@ -204,3 +204,5 @@ function loadBlogPost({
 }
 
 window.loadBlogPost = loadBlogPost;
+
+// Hero hover effect removed (kept empty to avoid re-adding handlers)
