@@ -34,7 +34,7 @@ body {
 
 /* Container */
 .container {
-  max-width: 1000px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 40px 0;
   position: relative;
@@ -47,7 +47,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  margin-bottom: 60px;
+  margin-bottom: 36px;
   
   /* Glass Header */
   background: rgba(0, 0, 0, 0.4); 
@@ -103,8 +103,18 @@ nav a:hover, nav a.active {
 
 /* Hero Section */
 .hero {
-  text-align: center;
-  padding: 80px 0;
+  padding: 28px 0 30px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-copy {
+  text-align: left;
 }
 
 .hero h2 {
@@ -120,7 +130,52 @@ nav a:hover, nav a.active {
   font-size: 1.3rem;
   color: var(--text-muted);
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 0 48px;
+}
+
+.hero-figure {
+  justify-self: center;
+  perspective: 1200px;
+}
+
+.hero-figure img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 8px;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+  animation: floaty 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hero .primary-links {
+  margin-top: 24px;
+}
+
+.hero .primary-links .grid {
+  margin-top: 12px;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(270px, 1fr));
+  justify-items: start;
+}
+
+.hero .primary-links .card {
+  padding: 38px;
+  max-width: 360px;
+}
+
+@media (max-width: 680px) {
+  .hero .primary-links .grid {
+    grid-template-columns: 1fr;
+  }
+  .hero .primary-links .card {
+    max-width: 100%;
+  }
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0) rotateZ(0deg) rotateY(-8deg); }
+  50% { transform: translateY(-12px) rotateZ(0.8deg) rotateY(-8deg); }
+  100% { transform: translateY(0) rotateZ(0deg) rotateY(-8deg); }
 }
 
 /* Button */
@@ -147,8 +202,8 @@ nav a:hover, nav a.active {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  gap: 24px;
+  margin-top: 24px;
 }
 
 /* CARD STYLES (Glass + 3D) */
@@ -167,7 +222,7 @@ nav a:hover, nav a.active {
   position: relative; 
   transform-style: preserve-3d;
   will-change: transform;
-  transition: transform 0.1s ease-out; /* Smooths the mouse movement */
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1); /* default ease when not actively moving */
   
   overflow: hidden;
 }
@@ -242,7 +297,7 @@ nav a:hover, nav a.active {
 
 /* Footer */
 footer {
-  margin-top: 100px;
+  margin-top: 70px;
   text-align: center;
   color: rgba(255,255,255,0.3);
   font-size: 0.9rem;
@@ -320,7 +375,7 @@ footer {
   display: block;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
 }
 
 .card.clickable:hover {
@@ -513,7 +568,7 @@ footer {
   perspective: 1000px;
 }
 #blog-grid .card.clickable:hover {
-  transform: translateY(-6px) rotateX(6deg) rotateY(-6deg);
+  transform: translateY(-3px) rotateX(3deg) rotateY(-3deg);
 }
 
 .grid {

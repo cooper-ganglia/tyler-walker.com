@@ -34,6 +34,7 @@ function enhanceCards(scope = document) {
     observer.observe(card);
 
     card.addEventListener('mousemove', (e) => {
+      card.style.transition = 'transform 0.05s linear';
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -41,9 +42,9 @@ function enhanceCards(scope = document) {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      // Multipliers determine how "extreme" the tilt is
-      const rotateX = ((y - centerY) / centerY) * -10; 
-      const rotateY = ((x - centerX) / centerX) * 10;
+      // Multipliers determine how "extreme" the tilt is (further softened)
+      const rotateX = ((y - centerY) / centerY) * -4; 
+      const rotateY = ((x - centerX) / centerX) * 4;
 
       // Apply the transformation
       // scale3d makes it pop "toward" you slightly
@@ -56,11 +57,13 @@ function enhanceCards(scope = document) {
 
     // Reset when mouse leaves
     card.addEventListener('mouseleave', () => {
+      card.style.transition = '';
       card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
     });
 
     if (card.classList.contains('clickable')) {
       card.addEventListener('mousemove', e => {
+        card.style.transition = 'transform 0.05s linear';
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -68,8 +71,8 @@ function enhanceCards(scope = document) {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -8;
-        const rotateY = ((x - centerX) / centerX) * 8;
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
 
         card.style.transform = `
           translateY(-6px)
@@ -79,6 +82,7 @@ function enhanceCards(scope = document) {
       });
 
       card.addEventListener('mouseleave', () => {
+        card.style.transition = '';
         card.style.transform = '';
       });
     }
