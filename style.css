@@ -39,6 +39,13 @@ body {
   padding: 40px 0;
   position: relative;
   z-index: 10; /* Ensures content sits ABOVE the shader */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* Header */
