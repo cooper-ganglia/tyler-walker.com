@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "setting-up-this-website",
+    "title": "Setting up this website",
+    "date": "January 2025",
+    "excerpt": "Notes on building a simple static site and hosting my own services."
+  },
+  {
+    "slug": "why-i-self-host",
+    "title": "Why I Self Host",
+    "date": "January 2025",
+    "excerpt": "Thoughts on control, simplicity, and running my own infrastructure."
+  },
+  {
+    "slug": "i-pooped-my-pants",
+    "title": "I Pooped My Pants",
+    "date": "April 20, 2025",
+    "excerpt": "There is poop all over the walls!"
+  }
+]

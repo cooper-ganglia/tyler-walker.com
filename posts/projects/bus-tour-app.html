@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tour Registration App | Project | Tyler Walker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="/index.html" style="color:inherit; text-decoration:none;">
+          Tyler Walker
+        </a>
+      </h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/portfolio.html" class="active">Portfolio</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="/portfolio.html">← Back to Portfolio</a>
+      <article class="post">
+        <header class="post-header">
+          <h2>Bus Tour Registration App</h2>
+          <span class="date">Offline-First iPad Tool</span>
+        </header>
+        <section class="project-hero">
+          <div class="pill-row">
+            <span class="pill">Offline-first</span>
+            <span class="pill">Service Worker</span>
+            <span class="pill">IndexedDB</span>
+          </div>
+          <p>A touch-friendly iPad web app for guides to manage riders and capacity—even with no signal. Syncs seamlessly when back online.</p>
+        </section>
+
+        <section class="post-content">
+          <div class="project-panels">
+            <div class="project-panel">
+              <h4>Highlights</h4>
+              <ul>
+                <li>Works fully offline: cached shell + local data writes.</li>
+                <li>Seat counts and rider status use bold color cues.</li>
+                <li>One-tap check-in and quick search for repeat riders.</li>
+              </ul>
+            </div>
+            <div class="project-panel">
+              <h4>Stack</h4>
+              <ul>
+                <li>Service Worker for offline caching of the UI.</li>
+                <li>IndexedDB for local persistence and conflict-safe merges.</li>
+                <li>Minimal sync endpoint to keep deployment simple.</li>
+              </ul>
+            </div>
+            <div class="project-panel">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Replaces paper manifests with a reliable, guided workflow.</li>
+                <li>Fewer overbookings thanks to real-time capacity tracking.</li>
+                <li>Lightweight enough for non-technical staff to manage.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Tyler Walker</p>
+    </footer>
+  </div>
+
+  <script src="/shader.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

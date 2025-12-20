@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TylerFlix | Project | Tyler Walker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="/index.html" style="color:inherit; text-decoration:none;">
+          Tyler Walker
+        </a>
+      </h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/portfolio.html" class="active">Portfolio</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="/portfolio.html">← Back to Portfolio</a>
+      <article class="post">
+        <header class="post-header">
+          <h2>TylerFlix</h2>
+          <span class="date">Self-Hosted Media</span>
+        </header>
+        <section class="project-hero">
+          <div class="pill-row">
+            <span class="pill">Docker + Traefik</span>
+            <span class="pill">Jellyfin</span>
+            <span class="pill">Hardware Transcoding</span>
+          </div>
+          <p>My self-hosted streaming stack with custom branding, hardened ingress, and automated backups. Friends and family get a polished landing page; I get full control and observability.</p>
+        </section>
+
+        <section class="post-content">
+          <div class="project-panels">
+            <div class="project-panel">
+              <h4>Highlights</h4>
+              <ul>
+                <li>GPU-accelerated transcoding for smooth remote playback.</li>
+                <li>Jellyseerr handles requests; Uptime Kuma monitors every service.</li>
+                <li>Nightly object storage backups and pruning scripts to stay lean.</li>
+              </ul>
+            </div>
+            <div class="project-panel">
+              <h4>Stack</h4>
+              <ul>
+                <li>Docker Compose with Traefik for TLS + routing.</li>
+                <li>Cloudflare DNS + Argo tunnels for secure exposure.</li>
+                <li>Custom dashboard reusing this site’s glassmorphism UI.</li>
+              </ul>
+            </div>
+            <div class="project-panel">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Reliable home media hub with zero cloud vendor lock-in.</li>
+                <li>Simple onboarding: one link for guests, automated certs.</li>
+                <li>Low-maintenance: alerts, backups, and cleanups on autopilot.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Tyler Walker</p>
+    </footer>
+  </div>
+
+  <script src="/shader.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

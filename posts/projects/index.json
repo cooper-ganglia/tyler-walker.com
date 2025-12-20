@@ -1,0 +1,12 @@
+[
+  {
+    "title": "TylerFlix",
+    "excerpt": "Self-hosted Jellyfin setup with custom branding and service dashboard.",
+    "file": "tylerflix.html"
+  },
+  {
+    "title": "Bus Tour Registration App",
+    "excerpt": "Offline-first iPad app for managing tour capacity and registrations.",
+    "file": "bus-tour-app.html"
+  }
+]

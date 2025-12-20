@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Blog | Tyler Walker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="/index.html" style="color:inherit; text-decoration:none;">
+          Tyler Walker
+        </a>
+      </h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/blog.html" class="active">Blog</a>
+        <a href="/portfolio.html">Portfolio</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="/blog.html">← Back to Blog</a>
+      <section class="post-hero">
+        <div class="pill-row">
+          <span class="pill">Blog</span>
+        </div>
+        <p id="post-excerpt"></p>
+      </section>
+      <article class="post">
+        <header class="post-header">
+          <h2 id="post-title"></h2>
+          <span class="date" id="post-date"></span>
+        </header>
+
+        <section class="post-content" id="post-content"></section>
+      </article>
+
+      <nav class="post-nav" id="post-nav"></nav>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Tyler Walker</p>
+    </footer>
+  </div>
+
+  <script src="/shader.js"></script>
+  <script src="/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    loadBlogPost({
+      indexUrl: '/posts/blog/index.json',
+      markdownRoot: '/posts/blog/',
+      titleEl: '#post-title',
+      dateEl: '#post-date',
+      contentEl: '#post-content',
+      navEl: '#post-nav',
+      excerptEl: '#post-excerpt'
+    });
+  </script>
+</body>
+</html>
